@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import invitation from "../data/invitation";
 import ShareButton from "./ShareButton";
 
 const CONFETTI_EMOJI = ["🎉", "🚗", "✨", "🎊", "🧡"];
@@ -22,8 +21,9 @@ function useConfettiPieces() {
 /**
  * Shown after the user accepts. A lightweight, CSS-driven confetti burst
  * (no animation library) plus the trip details and a share action.
+ * `data` is the (possibly user-edited) invitation config.
  */
-export default function SuccessState() {
+export default function SuccessState({ data }) {
   const pieces = useConfettiPieces();
 
   return (
@@ -45,38 +45,38 @@ export default function SuccessState() {
       </div>
 
       <div className="success-emoji" aria-hidden="true">
-        {invitation.successEmojiHeader}
+        {data.successEmojiHeader}
       </div>
-      <h1 className="success-title">{invitation.successTitle}</h1>
-      <p className="success-message">{invitation.successMessage}</p>
+      <h1 className="success-title">{data.successTitle}</h1>
+      <p className="success-message">{data.successMessage}</p>
 
       <div className="success-details">
         <div className="success-detail-row">
           <span className="success-detail-icon" aria-hidden="true">
             📍
           </span>
-          <span>{invitation.destination}</span>
+          <span>{data.destination}</span>
         </div>
         <div className="success-detail-row">
           <span className="success-detail-icon" aria-hidden="true">
             📅
           </span>
-          <span>{invitation.date}</span>
+          <span>{data.date}</span>
         </div>
         <div className="success-detail-row">
           <span className="success-detail-icon" aria-hidden="true">
             ⏰
           </span>
-          <span>{invitation.time}</span>
+          <span>{data.time}</span>
         </div>
       </div>
 
-      <p className="success-footer">{invitation.successFooter}</p>
+      <p className="success-footer">{data.successFooter}</p>
 
       <ShareButton
-        label={invitation.shareLabel}
-        title={invitation.shareTitle}
-        text={invitation.shareText}
+        label={data.shareLabel}
+        title={data.shareTitle}
+        text={data.shareText}
       />
     </div>
   );

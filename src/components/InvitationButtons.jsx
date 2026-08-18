@@ -11,10 +11,11 @@ import { useRunawayButton } from "../hooks/useRunawayButton";
  */
 export default function InvitationButtons({ data, onYes, avoidRefs = [] }) {
   const yesButtonRef = useRef(null);
+  const labels = data.noLabels?.length ? data.noLabels : ["NO 😭"];
 
   const { buttonRef, position, isRunaway, attemptCount, label, handlers } =
     useRunawayButton({
-      labels: data.noLabels,
+      labels,
       avoidRefs: [yesButtonRef, ...avoidRefs],
     });
 
