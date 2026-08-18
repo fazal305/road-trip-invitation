@@ -40,6 +40,7 @@ export default function InvitationButtons({ data, onYes, avoidRefs = [] }) {
         type="button"
         ref={buttonRef}
         className={`btn btn-no${isRunaway ? " is-runaway" : ""}`}
+        style={noStyle}
         data-attempt-count={attemptCount}
         {...handlers}
       >

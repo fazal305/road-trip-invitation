@@ -434,7 +434,12 @@ a:focus-visible {
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    /* Explicit `none` (not translateY(0) scale(1)) so this animation's
+       fill-mode:both doesn't leave a lingering transform on the card —
+       any non-none transform on an ancestor would turn it into the
+       containing block for the NO button's position:fixed, breaking its
+       viewport-relative math. */
+    transform: none;
   }
 }
 
@@ -445,7 +450,7 @@ a:focus-visible {
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: none;
   }
 }
 
