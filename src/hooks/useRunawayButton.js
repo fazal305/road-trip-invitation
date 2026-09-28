@@ -56,7 +56,7 @@ export function useRunawayButton({ labels, avoidRefs = [] }) {
       setPosition(nextPosition);
       setAttemptCount((count) => count + 1);
     },
-    [avoidRefs]
+    [avoidRefs],
   );
 
   // Desktop: dodge as soon as the mouse gets close, before it can click.
@@ -94,7 +94,10 @@ export function useRunawayButton({ labels, avoidRefs = [] }) {
       const rect = button.getBoundingClientRect();
       const padding = 16;
       const maxX = Math.max(padding, window.innerWidth - rect.width - padding);
-      const maxY = Math.max(padding, window.innerHeight - rect.height - padding);
+      const maxY = Math.max(
+        padding,
+        window.innerHeight - rect.height - padding,
+      );
 
       setPosition((prev) =>
         prev
@@ -102,7 +105,7 @@ export function useRunawayButton({ labels, avoidRefs = [] }) {
               x: Math.min(Math.max(prev.x, padding), maxX),
               y: Math.min(Math.max(prev.y, padding), maxY),
             }
-          : prev
+          : prev,
       );
     }
 
@@ -117,7 +120,7 @@ export function useRunawayButton({ labels, avoidRefs = [] }) {
     (event) => {
       escape({ x: event.clientX, y: event.clientY });
     },
-    [escape]
+    [escape],
   );
 
   // Keyboard activation (Enter/Space) fires a click with no pointer
@@ -128,7 +131,7 @@ export function useRunawayButton({ labels, avoidRefs = [] }) {
       event.preventDefault();
       escape(pointerPosRef.current);
     },
-    [escape]
+    [escape],
   );
 
   const label = labels[Math.min(attemptCount, labels.length - 1)];

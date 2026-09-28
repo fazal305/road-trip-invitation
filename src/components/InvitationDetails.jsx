@@ -13,11 +13,20 @@ export default function InvitationDetails({ data }) {
       <p className="invitation-greeting">{data.greeting}</p>
       <p className="invitation-message">{data.message}</p>
 
-      <div className="route" aria-label={`${data.origin} to ${data.destination}`}>
+      <div
+        className="route"
+        aria-label={`${data.origin} to ${data.destination}`}
+      >
         <span className="route-place">{data.origin}</span>
-        <span className="route-arrow" aria-hidden="true">↓</span>
-        <span className="route-arrow" aria-hidden="true">🚗</span>
-        <span className="route-arrow" aria-hidden="true">↓</span>
+        <span className="route-arrow" aria-hidden="true">
+          ↓
+        </span>
+        <span className="route-arrow" aria-hidden="true">
+          🚗
+        </span>
+        <span className="route-arrow" aria-hidden="true">
+          ↓
+        </span>
         <span className="route-place">{data.destination}</span>
       </div>
 

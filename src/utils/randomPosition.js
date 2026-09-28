@@ -68,7 +68,10 @@ export function getRandomSafePosition({
     }
 
     if (checkPointer && pointerPosition) {
-      if (distance(cx, cy, pointerPosition.x, pointerPosition.y) < minDistanceFromPointer) {
+      if (
+        distance(cx, cy, pointerPosition.x, pointerPosition.y) <
+        minDistanceFromPointer
+      ) {
         return false;
       }
     }

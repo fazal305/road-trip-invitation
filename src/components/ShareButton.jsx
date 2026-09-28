@@ -32,7 +32,9 @@ export default function ShareButton({ label, title, text, url }) {
       await navigator.clipboard.writeText(fallbackText);
       setFeedback("Copied to clipboard! 📋");
     } catch {
-      setFeedback("Couldn't copy automatically — select and copy the text yourself.");
+      setFeedback(
+        "Couldn't copy automatically — select and copy the text yourself.",
+      );
     }
   }
 

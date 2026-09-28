@@ -12,9 +12,10 @@ function useConfettiPieces() {
         left: Math.random() * 100,
         delay: Math.random() * 0.4,
         duration: 2.2 + Math.random() * 1.4,
-        emoji: CONFETTI_EMOJI[Math.floor(Math.random() * CONFETTI_EMOJI.length)],
+        emoji:
+          CONFETTI_EMOJI[Math.floor(Math.random() * CONFETTI_EMOJI.length)],
       })),
-    []
+    [],
   );
 }
 
